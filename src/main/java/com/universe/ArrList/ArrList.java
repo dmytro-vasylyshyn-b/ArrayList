@@ -11,6 +11,10 @@ public class ArrList<T> implements List<T> {
     private Object[] Array;
     private int Size;
 
+    public ArrList() {
+        this.Array = new Object[Capacity];
+        Size=0;
+    }
 
     public ArrList(int size) {
         Capacity = size;
@@ -68,6 +72,12 @@ public class ArrList<T> implements List<T> {
     }
 
     @Override
+    public void deleteDuplicates() {
+        Array= Arrays.stream(Array).distinct().toArray();
+        Size = (int) Arrays.stream(Array).filter((value)->value!=null).count();
+    }
+
+    @Override
     public int size() {
         return Size;
     }
@@ -117,4 +127,5 @@ public class ArrList<T> implements List<T> {
     public boolean isEmpty(){
         return Size==0;
     }
+
 }

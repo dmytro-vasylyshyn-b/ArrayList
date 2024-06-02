@@ -10,6 +10,7 @@ public interface List<T> {
     Object get(int i);
 
     void set(int index, T value);
+    void deleteDuplicates();
 
     T remove(int index);
 
